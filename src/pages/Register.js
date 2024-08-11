@@ -61,7 +61,7 @@ const Register = () => {
       <br/>
         <p>If you have  already registered then <a href="https://bulk-email-tool-backend-nandhini.onrender.com/login">click here</a>.
           or copy and paste the following on browser to navigate to login. </p>
-          <p>https://bulk-email-tool-f-e.vercel.app/login</p>
+          <p>https://github.com/DeepaNandhini1998/Front-end-DeepaNandhini1998-project-project-frontend.git</p>
     </div>
     <div>
     <br/>
