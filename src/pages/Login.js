@@ -32,8 +32,7 @@ const Login = () => {
 
     
   }
-    const [tempGoal, setTempGoal] = useState("");
-  const [goal, setGoal] = useState("");
+  const [setGoal] = useState("");
   // const navigate = useNavigate();
 
   const populateLogin = async () => {
