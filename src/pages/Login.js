@@ -11,7 +11,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const req = await fetch("https://bulk-email-tool-backend-nandhini.onrender.com/api/login", {
+    const req = await fetch("https://back-end-deepanandhini1998-project-yfvc.onrender.com/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: await JSON.stringify({
@@ -37,7 +37,7 @@ const Login = () => {
 
   const populateLogin = async () => {
     const token = localStorage.getItem("token");
-    const req = await fetch("https://bulk-email-tool-backend-nandhini.onrender.com/api/dashboard", {
+    const req = await fetch("https://back-end-deepanandhini1998-project-yfvc.onrender.com/api/dashboard", {
       headers: { "x-access-token": token },
     });
 

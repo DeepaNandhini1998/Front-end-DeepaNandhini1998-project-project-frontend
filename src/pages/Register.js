@@ -11,7 +11,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    const req = await fetch("https://bulk-email-tool-backend-nandhini.onrender.com/api/register", {
+    const req = await fetch("https://back-end-deepanandhini1998-project-yfvc.onrender.com/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: await JSON.stringify({
@@ -59,7 +59,7 @@ const Register = () => {
     </div>
     <div>
       <br/>
-        <p>If you have  already registered then <a href="https://bulk-email-tool-backend-nandhini.onrender.com/login">click here</a>.
+        <p>If you have  already registered then <a href="https://back-end-deepanandhini1998-project-yfvc.onrender.com/login">click here</a>.
           or copy and paste the following on browser to navigate to login. </p>
           <p>https://github.com/DeepaNandhini1998/Front-end-DeepaNandhini1998-project-project-frontend.git</p>
     </div>
