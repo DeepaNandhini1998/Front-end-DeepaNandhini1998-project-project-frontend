@@ -19,26 +19,26 @@ export default function EmailForm() {
     else {
         submit.type = 'submit';
 
-        await fetch('https://movers-san-francisco.com/email_sender.php', {
-             method:   'POST',
-             'Accept': 'application/json',
-             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-             body:     'email_message=' + JSON.stringify({
-                       'mail_to': to[0],
-                       'mail_subject': subject.value,
-                       'mail_message': message.value
-                      })
-        }).then(response => response.json()).then(data => {
-            
-            if (data.result === 'success') {
-                mail_data.innerHTML = `Email was successfully sent to ${to[0]}<br>` + mail_data.innerHTML;
-                console.log(data);
-            }
-            else
-                mail_data.innerHTML = `Error sending an email to ${to[0]}!<br>` + mail_data.innerHTML;
+        const req = await fetch("https://back-end-deepanandhini1998-project-yfvc.onrender.com/api/sendMail", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: await JSON.stringify({
+              'mail_to': to[0],
+              'mail_subject': subject.value,
+              'mail_message': message.value
+            }),
+          });
+      
+          const data = await req.json();
+      
+          if (data.status === "ok") {
+            mail_data.innerHTML = `Email was successfully sent to ${to[0]}<br>` + mail_data.innerHTML;
+            console.log(data);
+          } else {
+            mail_data.innerHTML = `Error sending an email to ${to[0]}!<br>` + mail_data.innerHTML;
+          }
 
-        })
-        }       
+        }
     }
     else if (to.length!==1){
         for(let i = 0; i<to.length;i++){
@@ -49,26 +49,26 @@ export default function EmailForm() {
     else {
         submit.type = 'submit';
 
-        await fetch('https://movers-san-francisco.com/email_sender.php', {
-             method:   'POST',
-             'Accept': 'application/json',
-             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-             body:     'email_message=' + JSON.stringify({
-                       'mail_to': to[i],
-                       'mail_subject': subject.value,
-                       'mail_message': message.value
-                      })
-        }).then(response => response.json()).then(data => {
-            
-            if (data.result === 'success') {
-                mail_data.innerHTML = `Email was successfully sent to ${to[i]}<br>` + mail_data.innerHTML;
-                console.log(data);
-            }
-            else
-                mail_data.innerHTML = 'Error sending an email!<br>' + mail_data.innerHTML;
+        const req = await fetch("https://back-end-deepanandhini1998-project-yfvc.onrender.com/api/sendMail", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: await JSON.stringify({
+              'mail_to': to[0],
+              'mail_subject': subject.value,
+              'mail_message': message.value
+            }),
+          });
+      
+          const data = await req.json();
+      
+          if (data.status === "ok") {
+            mail_data.innerHTML = `Email was successfully sent to ${to[0]}<br>` + mail_data.innerHTML;
+            console.log(data);
+          } else {
+            mail_data.innerHTML = `Error sending an email to ${to[0]}!<br>` + mail_data.innerHTML;
+          }
 
-        });
-        }
+        }    
         }
     }
   }
