@@ -4,6 +4,7 @@ import React from "react";
 export default function EmailForm() {
   const submitbtn = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("token");
     const email_to = document.querySelector('#email-to');
     const subject = document.querySelector('#subject');
     const message = document.querySelector('#message');
@@ -21,7 +22,7 @@ export default function EmailForm() {
 
         const req = await fetch("https://back-end-deepanandhini1998-project-yfvc.onrender.com/api/sendMail", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json", "x-access-token": token },
             body: await JSON.stringify({
               'mail_to': to[0],
               'mail_subject': subject.value,
@@ -51,7 +52,7 @@ export default function EmailForm() {
 
         const req = await fetch("https://back-end-deepanandhini1998-project-yfvc.onrender.com/api/sendMail", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json", "x-access-token": token },
             body: await JSON.stringify({
               'mail_to': to[0],
               'mail_subject': subject.value,
